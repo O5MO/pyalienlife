@@ -88,15 +88,11 @@ local function wander(caravan_data)
     }
 end
 
-local no_fuel_map_tag = {
-    type = "virtual",
-    name = "no-fuel"
-}
-
 ---Function to render a red 'fuel alert' similar to the locomotive out of fuel alert.
 ---This renders on the player GUI in the same slot as the locomotive alert or 'entities damaged' alert.
 ---@param entity LuaEntity
-local function add_fuel_alert(entity)
+---@param alert CaravanAlert
+local function add_alert(entity, alert)
     local target_force = entity.force_index
     for _, player in pairs(game.connected_players) do
         if player.valid and player.force_index == target_force then
@@ -104,8 +100,8 @@ local function add_fuel_alert(entity)
             -- player.add_alert(entity, defines.alert_type.train_out_of_fuel)
             player.add_custom_alert(
                 entity,
-                no_fuel_map_tag,
-                {"virtual-signal-name.no-fuel"},
+                alert.signal,
+                alert.message,
                 true
             )
         end
@@ -114,7 +110,7 @@ end
 
 ---Function to remove the red 'fuel alert' from the player GUI.
 ---@param entity LuaEntity
-local function remove_fuel_alert(entity)
+local function remove_alert(entity)
     if not entity.valid then
         -- it'll disappear after a few seconds anyway
         return
@@ -1168,13 +1164,9 @@ py.register_on_nth_tick(60, "update-caravans", "pyal", function()
         if not Caravan.validity_check(caravan_data) then goto continue end
         local entity = caravan_data.entity
         local needs_fuel = caravan_data.fuel_inventory and caravan_data.fuel_bar == 0 and caravan_data.fuel_inventory.is_empty()
-
         if needs_fuel then
-            -- 300 ticks/5 seconds is how long these alerts last
-            if game.tick % 300 == 0 then
-                add_fuel_alert(entity)
-            end
-            py.draw_error_sprite(entity, "utility.fuel_icon", 30)
+            add_alert(entity, Caravan.alerts.no_fuel)
+            py.draw_error_sprite(entity, "virtual-signal.py-no-food", 30)
             goto continue
         end
 
@@ -1302,7 +1294,7 @@ py.on_event(py.events.on_destroyed(), function(event)
     local prototype = caravan_prototypes[entity.name]
     if not prototype then return end
 
-    remove_fuel_alert(event.entity)
+    remove_alert(event.entity)
 
     local buffer = event.buffer
     if buffer then
