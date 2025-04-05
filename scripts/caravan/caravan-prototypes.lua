@@ -18,8 +18,11 @@ Caravan.alerts = {
         message = {"?", {"caravan-warnings.no-food"}, {"virtual-signal-name.no-food"}, {"virtual-signal-name.no-fuel"}}
     },
     destination_destroyed = {
-        signal = nil,
-        message = "destination destroyed"
+        signal = {
+            type = "virtual",
+            name = "py-destination-destroyed"
+        },
+        message = {"?", {"caravan-warnings.destination_destroyed"}, {"virtual-signal-name.destination_destroyed"}, {"gui-alert-tooltip.train-no-path"}}
     },
 }
 
