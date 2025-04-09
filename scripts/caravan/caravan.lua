@@ -31,6 +31,7 @@ local remove_tmp_stops = 0
 ---@field localised_name LocalisedString The name of the schedule. This is displayed in the GUI.
 ---@field position MapPosition The position that the caravan will travel to. Used as a fallback in case of no entity or invalid entity.
 ---@field temporary table? Whether this stop is temporary
+---@field player_index int? The player index of the character this schedule points to, if any.
 
 ---@class CaravanAction
 ---@field async? boolean Whether this action should be 'ticked' once and then move on to the next action. If false or nil, the caravan will wait until the action is complete before moving on. Note that some action types ignore this field such as 'time passed'.
@@ -211,23 +212,40 @@ py.on_event(py.events.on_entity_clicked(), function(event)
         end
     elseif last_opened.schedule_id then
         -- Last opened is a schedule to reassign
-        if entity.operable then storage.make_operable_next_tick[#storage.make_operable_next_tick + 1] = entity end
-        entity.operable = false -- Prevents the player from opening the gui of the clicked entity
-        if only_outpost and entity.name ~= prototype.outpost then return end
-        if caravan_data and (entity == caravan_data.entity or entity.surface ~= caravan_data.entity.surface) then return end
-        local sch = schedule[last_opened.schedule_id]
-        sch.localised_name = {"caravan-gui.entity-position", entity.prototype.localised_name, math.floor(entity.position.x), math.floor(entity.position.y)}
-        sch.entity = entity
-        sch.position = entity.position
+        if entity then
+            if entity.operable then storage.make_operable_next_tick[#storage.make_operable_next_tick + 1] = entity end
+            entity.operable = false -- Prevents the player from opening the gui of the clicked entity
+            if only_outpost and entity.name ~= prototype.outpost then return end
+            if caravan_data and (entity == caravan_data.entity or entity.surface ~= caravan_data.entity.surface) then return end
+            local sch = schedule[last_opened.schedule_id]
+            local localised_name
+            if entity.type == "character" then
+                sch.player_index = entity.player.index
+                localised_name = {"caravan-gui.player-name", entity.player.name}
+            else
+                sch.player_index = nil
+                localised_name = {"caravan-gui.entity-position", entity.prototype.localised_name, math.floor(entity.position.x), math.floor(entity.position.y)}
+            end
+            sch.localised_name = localised_name
+            sch.entity = entity
+            sch.position = entity.position
+        end
     elseif entity then
         if entity.operable then storage.make_operable_next_tick[#storage.make_operable_next_tick + 1] = entity end
         entity.operable = false -- Prevents the player from opening the gui of the clicked entity
         if only_outpost and entity.name ~= prototype.outpost then return end
         if caravan_data and (entity == caravan_data.entity or entity.surface ~= caravan_data.entity.surface) then return end
+        local player_index = nil
+        local localised_name = {"caravan-gui.entity-position", entity.prototype.localised_name, math.floor(entity.position.x), math.floor(entity.position.y)}
+        if entity.type == "character" then
+            player_index = entity.player.index
+            localised_name = {"caravan-gui.player-name", entity.player.name}
+        end
         schedule[#schedule + 1] = {
-            localised_name = {"caravan-gui.entity-position", entity.prototype.localised_name, math.floor(entity.position.x), math.floor(entity.position.y)},
+            localised_name = localised_name,
             entity = entity,
             position = entity.position,
+            player_index = player_index,
             actions = {}
         }
     elseif not only_outpost then
@@ -236,6 +254,7 @@ py.on_event(py.events.on_entity_clicked(), function(event)
         schedule[#schedule + 1] = {
             localised_name = {"caravan-gui.map-position", math.floor(position.x), math.floor(position.y)},
             position = position,
+            player_index = nil,
             actions = {}
         }
     else
@@ -745,8 +764,16 @@ local function begin_schedule(caravan_data, schedule_id, skip_eating)
         if schedule_entity.valid and schedule_entity.surface == entity.surface then
             goto_entity(caravan_data, schedule.entity)
         else
-            add_alert(entity, Caravan.alerts.destination_destroyed)
-            py.draw_error_sprite(entity, "virtual-signal.py-destination-destroyed", 30)
+            if schedule.player_index then
+                -- Try to reassign the schedule to the player's character
+                local player = game.players[schedule.player_index]
+                if player.character then
+                    schedule.entity = player.character
+                end
+            else
+                add_alert(entity, Caravan.alerts.destination_destroyed)
+                py.draw_error_sprite(entity, "virtual-signal.py-destination-destroyed", 30)
+            end
             caravan_data.retry_pathfinder = 1
             return
         end
@@ -1396,6 +1423,7 @@ remote.add_interface("caravans", {
 })
 
 ---This is called whenever an entity is swapped out for an identical entity. For example ulric man steroids transforming the player character into a different entity.
+---TODO: potentially not needed anymore since caravan now binds to player, not just character
 ---@param old LuaEntity
 ---@param new LuaEntity
 function Caravan.entity_changed_unit_number(old, new)
