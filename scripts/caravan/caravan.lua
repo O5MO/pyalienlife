@@ -4,6 +4,7 @@ require "italian-names"
 require "caravan-gui"
 require "caravan-global-gui"
 require "caravan-connected-gui"
+require "outpost"
 require "__core__.lualib.util"
 local caravan_prototypes = require "caravan-prototypes"
 
