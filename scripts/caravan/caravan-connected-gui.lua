@@ -15,9 +15,6 @@ end
 --anchor is optional
 local function instantiate_main_frame(gui, anchor)
     if anchor then
-        if gui.relative.py_global_caravan_gui then
-            gui.relative.py_global_caravan_gui.destroy()
-        end
         return gui.relative.add {
             type = "frame",
             name = "py_global_caravan_gui",
