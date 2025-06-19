@@ -1,6 +1,21 @@
 ---------------------------------------------------------------------------------------------------
+Version: 3.0.43
+Date: tba
+  Changes:
+    - Changed spore collectors to use research productivity instead of 3 different recipes
+    - Made bhoddos breeding less random
+    - The pyHT urea recipe is now marked as hidden.
+    - Added a new recycling recipe for extra cages. Resolves https://github.com/pyanodon/pybugreports/issues/965
+    - Fixed fish TURD fish farms not having passthru pipe connections. Resolves https://github.com/pyanodon/pybugreports/issues/955
+    - Fix crash with caravan interupt migrations. Resolves https://github.com/pyanodon/pybugreports/issues/909
+    - Farm recipe icons are now numbered.
+    - Fixed harvesters placed on a smart farm changing circuit conditions when the smart farm creates new crops. Resolves https://github.com/pyanodon/pybugreports/issues/988
+    - Fixed mk2+ vrauk breeding stats. Resolves https://github.com/pyanodon/pybugreports/issues/997
+  Internal:
+    - remove shorthands in recipe declarations
+---------------------------------------------------------------------------------------------------
 Version: 3.0.42
-Date: ???
+Date: 2025-4-12
   Changes:
     - Add missing migration for new soot separation technology.
     - Fixed actions being incorrect size in interrupt target gui
@@ -23,6 +38,7 @@ Date: ???
     - Fixed nexelit ore not appearing in remote view search. Resolves https://github.com/pyanodon/pybugreports/issues/906
     - Fixed barrel loops involving the arqad C.A.G.S. turd. Resolves https://github.com/pyanodon/pybugreports/issues/902
     - Added new pyphoon bay recipes that allow resting of dingrits MK02, dingrits MK03, dingrits MK04, simik MK02, simik MK03, and , simik MK04. Resolves https://github.com/pyanodon/pybugreports/issues/874
+    - Removed productivity from a bunch of bioprinting and data array recipes to match 1.1.
 ---------------------------------------------------------------------------------------------------
 Version: 3.0.41
 Date: 2025-3-7

@@ -161,6 +161,11 @@ end
 
 if mods.pystellarexpedition then
     require "__pystellarexpedition__.prototypes.updates.base-updates"
+    require "__pystellarexpedition__.prototypes.updates.space-age-updates"
+    require "__pystellarexpedition__.prototypes.updates.maraxsis-updates"
+    require "__pystellarexpedition__.prototypes.updates.pycoalprocessing-updates"
+    require "__pystellarexpedition__.prototypes.updates.pyrawores-updates"
+    require "__pystellarexpedition__.prototypes.updates.pypetroleumhandling-updates"
     require "__pystellarexpedition__.prototypes.updates.pyalternativeenergy-updates"
     require "__pystellarexpedition__.prototypes.updates.pyhightech-updates"
     require "__pystellarexpedition__.prototypes.updates.pyalienlife-updates"
@@ -325,4 +330,8 @@ end
 if register_cache_file ~= nil then
     register_cache_file({"pycoalprocessing", "pyfusionenergy", "pyindustry", "pyrawores", "pypetroleumhandling", "pyalienlife"}, "__pyalienlife__/cached-configs/pyalienlife+pycoalprocessing+pyfusionenergy+pyindustry+pypetroleumhandling+pyrawores")
     register_cache_file({"pycoalprocessing", "pyfusionenergy", "pyindustry", "pyrawores", "pyhightech", "pypetroleumhandling", "pyalienlife"}, "__pyalienlife__/cached-configs/pyalienlife+pycoalprocessing+pyfusionenergy+pyhightech+pyindustry+pypetroleumhandling+pyrawores")
+end
+
+if mods["dependency-graph-lib"] then
+    data.raw.item["iron-chest"].autotech_startup = true
 end
