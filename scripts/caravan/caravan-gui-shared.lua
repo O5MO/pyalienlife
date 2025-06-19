@@ -2,7 +2,6 @@ local caravan_prototypes = require "caravan-prototypes"
 
 function Caravan.status_img(caravan_data)
     local entity = caravan_data.entity
-    -- TODO: dead code?
     if caravan_data.is_aerial then
         return {"entity-status.working"}, "utility/status_working"
     elseif caravan_data.fuel_bar == 0 and caravan_data.fuel_inventory.is_empty() then
@@ -275,8 +274,7 @@ local function title_display_mode(caption_flow, caravan_data)
     local button = caption_flow.py_rename_caravan_button
     button.style = "mini_button_aligned_to_text_vertically_when_centered"
     button.sprite = "rename_icon_small_black"
-    button.hovered_sprite = "rename_icon_small_black"
-    button.clicked_sprite = "rename_icon_small_black"
+    button.style.top_margin = 6
 
     title.style.maximal_width = button.tags.maximal_width or error("No maximal width")
 end

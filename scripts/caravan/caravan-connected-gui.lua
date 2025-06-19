@@ -51,7 +51,6 @@ end
 --anchor is optional
 Caravan.build_gui_connected = function(player, entity, anchor)
     if not entity then return end
-    if entity.name == "outpost" or entity.name == "outpost-aerial" then return end
     if not Caravan.has_any_caravan(entity) then return end
     local main_frame = instantiate_main_frame(player.gui, anchor)
     if not main_frame then return end

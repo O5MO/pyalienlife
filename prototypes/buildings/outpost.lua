@@ -32,9 +32,11 @@ data:extend {{
     scale_info_icons = true,
     name = "outpost",
     type = "container",
+    circuit_connector = table.deepcopy(data.raw.container["steel-chest"].circuit_connector), -- todo
+    circuit_wire_max_distance = 9,
     close_sound = {
         filename = "__base__/sound/metallic-chest-close.ogg",
-        volume = 0.43
+        volume = 0.42999999999999998
     },
     collision_box = {
         {
@@ -71,8 +73,7 @@ data:extend {{
     dying_explosion = "steel-chest-explosion",
     flags = {
         "placeable-neutral",
-        "player-creation",
-        "get-by-unit-number"
+        "player-creation"
     },
     icon = "__pyalienlifegraphics2__/graphics/icons/outpost.png",
     icon_size = 64,
@@ -84,7 +85,7 @@ data:extend {{
     },
     open_sound = {
         filename = "__base__/sound/metallic-chest-open.ogg",
-        volume = 0.43
+        volume = 0.42999999999999998
     },
     picture = {
         layers = {
@@ -116,20 +117,5 @@ data:extend {{
             3.0,
             3.0
         }
-    },
-    circuit_connector = table.deepcopy(data.raw.container["steel-chest"].circuit_connector), -- TODO
-    circuit_wire_max_distance = 9,
-}}
-
--- TODO: temporary description, update if necessary
--- A hidden proxy container for the purposes of reading outpost contents without outpost gui having "circuit connections" window
--- Note that outpost itself can also be connected to circuit network, but this connection is moved onto the proxy upon opening gui
-data:extend{{
-    type = "proxy-container",
-    name = "outpost-circuit-connector",
-    draw_inventory_content = false,
-    circuit_connector = table.deepcopy(data.raw.container["steel-chest"].circuit_connector), -- TODO
-    circuit_wire_max_distance = data.raw.container["outpost"].circuit_wire_max_distance,
-    collision_mask = {layers = {}},
-    -- selection_box = {{1,1},{3,3}}
+    }
 }}
