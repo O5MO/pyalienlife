@@ -24,7 +24,7 @@ if data and not yafc_turd_integration then
             end
         end
         local _, amount = recipe:remove_result("barrel")
-        recipe:add_result {type = "item", name = "soaked-gel-barrel", amount = amount}
+        recipe:add_result {"soaked-gel-barrel", amount}
         data:extend {recipe}
     end
 

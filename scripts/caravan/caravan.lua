@@ -5,11 +5,11 @@ require "caravan-gui"
 require "caravan-global-gui"
 require "caravan-connected-gui"
 require "outpost"
-require "util"
+require "__core__.lualib.util"
 local caravan_prototypes = require "caravan-prototypes"
 
 -- function stubs
-local remove_tmp_stops = function(_) error("function stub") end
+local remove_tmp_stops = 0
 
 ---@class Caravan
 ---@field arrival_tick number? The gametick that this caravan arrived at its destination. Used to queue most recent caravans first.
@@ -25,8 +25,6 @@ local remove_tmp_stops = function(_) error("function stub") end
 ---@field action_id int The action index of the schedule that the caravan is currently following. This is used to highlight the grey 'play' button in the GUI. If this == -1, the caravan is idle.
 ---@field unit_number number The unit number of the caravan entity.
 ---@field interrupts string[]
----@field stored_energy number?
----@field last_scheduled_tick int?
 
 ---@class CaravanSchedule
 ---@field actions CaravanAction[] The actions that the caravan will perform (in order of this array) when it reaches this schedule. Each element is a table with a type and localised_name.
@@ -47,7 +45,6 @@ local remove_tmp_stops = function(_) error("function stub") end
 ---@field entity LuaEntity? The target entity if this is an 'at station' action
 ---@field localised_name LocalisedString The name of the action. This is displayed in the GUI.
 ---@field type string The type of the action. This is used to determine what the caravan will do when it reaches this action.
----@field timer number?
 
 ---@class CaravanInterrupt
 ---@field name string The name of the interrupt
@@ -59,7 +56,7 @@ local remove_tmp_stops = function(_) error("function stub") end
 ---@param caravan_data Caravan
 ---@param entity LuaEntity
 local function goto_entity(caravan_data, entity)
-    local caravan = caravan_data.entity --[[@as LuaEntity]]
+    local caravan = caravan_data.entity
     caravan.commandable.set_command {
         type = defines.command.go_to_location,
         destination_entity = entity,
@@ -73,7 +70,7 @@ end
 ---@param caravan_data Caravan
 ---@param position MapPosition
 local function goto_position(caravan_data, position)
-    local caravan = caravan_data.entity --[[@as LuaEntity]]
+    local caravan = caravan_data.entity
     caravan.commandable.set_command {
         type = defines.command.go_to_location,
         destination = position,
@@ -172,8 +169,8 @@ end
 
 --- Called whenever the player uses the carrot-on-stick capsule item.
 py.on_event(py.events.on_entity_clicked(), function(event)
-    local player = game.get_player(event.player_index) --[[@as LuaPlayer]]
-    local cursor_stack = player.cursor_stack --[[@as LuaItemStack]]
+    local player = game.get_player(event.player_index)
+    local cursor_stack = player.cursor_stack
     local cursor_ghost = player.cursor_ghost
 
     if not (cursor_ghost and cursor_ghost.name.name == "caravan-control") then
@@ -285,15 +282,15 @@ end
 ---@param caravan_data Caravan
 ---@return boolean
 function Caravan.eat(caravan_data)
-    local entity = caravan_data.entity --[[@as LuaEntity]]
+    local entity = caravan_data.entity
     if caravan_data.fuel_bar == 0 then
         local fuel = caravan_data.fuel_inventory
         for _, item in pairs(fuel.get_contents()) do
-            item_name = item.name
-            fuel.remove {name = item_name, count = 1}
-            caravan_data.fuel_bar = caravan_prototypes[entity.name].favorite_foods[item_name]
+            item = item.name
+            fuel.remove {name = item, count = 1}
+            caravan_data.fuel_bar = caravan_prototypes[entity.name].favorite_foods[item]
             caravan_data.last_eaten_fuel_value = caravan_data.fuel_bar
-            entity.force.get_item_production_statistics(entity.surface_index).on_flow(item_name, -1)
+            entity.force.get_item_production_statistics(entity.surface_index).on_flow(item, -1)
             return true
         end
         return false
@@ -570,7 +567,7 @@ gui_events[defines.events.on_gui_click]["py_close_interrupt_button"] = function(
 end
 
 gui_events[defines.events.on_gui_selection_state_changed]["py_add_action"] = function(event)
-    local player = game.get_player(event.player_index) --[[@as LuaPlayer]]
+    local player = game.get_player(event.player_index)
     local element = event.element
     local tags = element.tags
     local caravan_data = storage.caravans[tags.unit_number]
@@ -613,7 +610,7 @@ gui_events[defines.events.on_gui_selection_state_changed]["py_add_action"] = fun
 end
 
 gui_events[defines.events.on_gui_click]["py_blocking_caravan"] = function(event)
-    local player = game.get_player(event.player_index) --[[@as LuaPlayer]]
+    local player = game.get_player(event.player_index)
     local element = event.element
     local action = get_action_from_button(player, element)
     action.async = not element.state
@@ -648,7 +645,7 @@ gui_events[defines.events.on_gui_selection_state_changed]["py_caravan_condition_
 end
 
 gui_events[defines.events.on_gui_click]["py_shuffle_schedule_."] = function(event)
-    local player = game.get_player(event.player_index) --[[@as LuaPlayer]]
+    local player = game.get_player(event.player_index)
     local element = event.element
     local tags = element.tags
     local id = tags.action_id or tags.schedule_id
@@ -670,7 +667,7 @@ gui_events[defines.events.on_gui_click]["py_shuffle_schedule_."] = function(even
 end
 
 gui_events[defines.events.on_gui_click]["py_delete_schedule"] = function(event)
-    local player = game.get_player(event.player_index) --[[@as LuaPlayer]]
+    local player = game.get_player(event.player_index)
     local element = event.element
     local tags = element.tags
     local caravan_data = storage.caravans[tags.unit_number]
@@ -747,7 +744,7 @@ local function begin_schedule(caravan_data, schedule_id, skip_eating)
         return
     end
 
-    local entity = caravan_data.entity --[[@as LuaEntity]]
+    local entity = caravan_data.entity
     if not entity or not entity.valid then
         stop_actions(caravan_data); return
     end
@@ -764,7 +761,7 @@ local function begin_schedule(caravan_data, schedule_id, skip_eating)
     caravan_data.schedule_id = schedule_id
     caravan_data.action_id = -1
     if schedule.entity then
-        local schedule_entity = schedule.entity --[[@as LuaEntity]]
+        local schedule_entity = schedule.entity
         if schedule_entity.valid and schedule_entity.surface == entity.surface then
             goto_entity(caravan_data, schedule.entity)
         else
@@ -885,7 +882,7 @@ gui_events[defines.events.on_gui_click]["py_action_play"] = function(event)
 end
 
 gui_events[defines.events.on_gui_click]["py_fuel_slot_."] = function(event)
-    local player = game.get_player(event.player_index) --[[@as LuaPlayer]]
+    local player = game.get_player(event.player_index)
     local element = event.element
     local tags = element.tags
     local caravan_data = storage.caravans[tags.unit_number]
@@ -938,14 +935,14 @@ gui_events[defines.events.on_gui_click]["py_fuel_slot_."] = function(event)
 end
 
 gui_events[defines.events.on_gui_elem_changed]["py_item_value"] = function(event)
-    local player = game.get_player(event.player_index) --[[@as LuaPlayer]]
+    local player = game.get_player(event.player_index)
     local element = event.element
     local action = get_action_from_button(player, element)
     action.elem_value = element.elem_value
 end
 
 gui_events[defines.events.on_gui_text_changed]["py_item_count"] = function(event)
-    local player = game.get_player(event.player_index) --[[@as LuaPlayer]]
+    local player = game.get_player(event.player_index)
     local element = event.element
     local action = get_action_from_button(player, element)
     local item_count = tonumber(element.text)
@@ -955,7 +952,7 @@ end
 gui_events[defines.events.on_gui_text_changed]["py_food_count"] = gui_events[defines.events.on_gui_text_changed]["py_item_count"]
 
 gui_events[defines.events.on_gui_confirmed]["py_item_count"] = function(event)
-    local player = game.get_player(event.player_index) --[[@as LuaPlayer]]
+    local player = game.get_player(event.player_index)
     local element = event.element
     local action = get_action_from_button(player, element)
     local item_count = tonumber(element.text)
@@ -973,7 +970,7 @@ gui_events[defines.events.on_gui_confirmed]["py_item_count"] = function(event)
 end
 
 gui_events[defines.events.on_gui_confirmed]["py_food_count"] = function(event)
-    local player = game.get_player(event.player_index) --[[@as LuaPlayer]]
+    local player = game.get_player(event.player_index)
     local element = event.element
     local action = get_action_from_button(player, element)
     local item_count = tonumber(element.text)
@@ -991,21 +988,21 @@ gui_events[defines.events.on_gui_confirmed]["py_food_count"] = function(event)
 end
 
 gui_events[defines.events.on_gui_elem_changed]["py_circuit_condition_right"] = function(event)
-    local player = game.get_player(event.player_index) --[[@as LuaPlayer]]
+    local player = game.get_player(event.player_index)
     local element = event.element
     local action = get_action_from_button(player, element)
     action.circuit_condition_right = element.elem_value
 end
 
 gui_events[defines.events.on_gui_elem_changed]["py_circuit_condition_left"] = function(event)
-    local player = game.get_player(event.player_index) --[[@as LuaPlayer]]
+    local player = game.get_player(event.player_index)
     local element = event.element
     local action = get_action_from_button(player, element)
     action.circuit_condition_left = element.elem_value
 end
 
 gui_events[defines.events.on_gui_text_changed]["py_value_condition_right"] = function(event)
-    local player = game.get_player(event.player_index) --[[@as LuaPlayer]]
+    local player = game.get_player(event.player_index)
     local element = event.element
     local action = get_action_from_button(player, element)
     action.circuit_condition_right = tonumber(element.text)
@@ -1013,7 +1010,7 @@ end
 
 
 gui_events[defines.events.on_gui_text_changed]["py_time_passed_text"] = function(event)
-    local player = game.get_player(event.player_index) --[[@as LuaPlayer]]
+    local player = game.get_player(event.player_index)
     local element = event.element
     local action = get_action_from_button(player, element)
     action.wait_time = tonumber(element.text or 5)
@@ -1047,11 +1044,11 @@ local function advance_caravan_schedule_by_1(caravan_data)
     local schedule = caravan_data.schedule[caravan_data.schedule_id]
     assert(schedule)
 
-    local existing_interrupt_name
+    local existing_interrupt_name    
     local is_interrupted = false
     for _, sch in pairs(caravan_data.schedule) do
         if sch.temporary then
-            if sch ~= schedule then -- It is about to be deleted, so dont count it
+            if sch ~= schedule then  -- It is about to be deleted, so dont count it
                 is_interrupted = true
                 existing_interrupt_name = sch.temporary.interrupt_name
                 break
@@ -1078,7 +1075,7 @@ local function advance_caravan_schedule_by_1(caravan_data)
         end
         if conditions_passed then
             passed_index = idx
-            is_interrupted = true -- Pretend the interrupt succeded but dont add it to the schedule yet
+            is_interrupted = true   -- Pretend the interrupt succeded but dont add it to the schedule yet
         end
 
         ::continue::
@@ -1128,7 +1125,7 @@ py.on_event(defines.events.on_ai_command_completed, function(event)
             advance_caravan_schedule_by_1(caravan_data)
         end
     else
-        local entity = caravan_data.entity --[[@as LuaEntity]]
+        local entity = caravan_data.entity
         begin_action(caravan_data, 1)
         entity.commandable.set_command {
             type = defines.command.stop,

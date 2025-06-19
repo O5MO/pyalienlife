@@ -8,7 +8,6 @@ py.autorecipes {
 	order = "c",
 	main_product = "simik-pup",
 	crafting_speed = 30,
-	number_icons = true,
 	mats =
 	{
 		--logistic
@@ -192,7 +191,6 @@ py.autorecipes {
 	subgroup = "py-alienlife-simik",
 	order = "b",
 	main_product = "simik",
-	number_icons = true,
 	mats =
 	{
 		--logistic
@@ -614,7 +612,6 @@ py.autorecipes {
 	subgroup = "py-alienlife-simik",
 	order = "b",
 	main_product = "simik-poop",
-	number_icons = true,
 	mats =
 	{
 		--logistic

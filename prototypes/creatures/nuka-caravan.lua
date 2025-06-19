@@ -1,4 +1,3 @@
----@diagnostic disable: missing-parameter
 local util = require "util"
 local sounds = require "__base__.prototypes.entity.sounds"
 
@@ -17,7 +16,7 @@ RECIPE {
         {type = "fluid", name = "water-saline",                                                   amount = 100},
         {type = "item",  name = mods.pyalternativeenergy and "atomic-bomb" or "explosive-rocket", amount = 1}
     },
-    results = {{type = "item", name = "nukavan", amount = 1}}
+    result = "nukavan"
 }:add_unlock("domestication-mk04")
 
 ITEM {

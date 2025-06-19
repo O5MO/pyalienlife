@@ -4,7 +4,6 @@ py.autorecipes {
 	category = "auog",
 	subgroup = "py-alienlife-auog",
 	order = "b",
-	number_icons = true,
 	mats =
 	{
 		--base

@@ -5,23 +5,7 @@ TECHNOLOGY {
     icon_size = 128,
     order = "c-a",
     prerequisites = {"mycology-mk02"},
-    effects = {
-        {
-            type = "change-recipe-productivity",
-            recipe = "fawogae-spore",
-            change = 0.15,
-        },
-        {
-            type = "change-recipe-productivity",
-            recipe = "navens-spore",
-            change = 0.4,
-        },
-        {
-            type = "change-recipe-productivity",
-            recipe = "yaedols-spores",
-            change = 0.4,
-        },
-    },
+    effects = {},
     unit = {
         count = 150,
         ingredients = {
@@ -40,28 +24,7 @@ TECHNOLOGY {
     order = "c-a",
     prerequisites = {"mycology-mk03", "microfilters"},
     dependencies = {"microfilters"},
-    effects = {
-        {
-            type = "change-recipe-productivity",
-            recipe = "fawogae-spore",
-            change = 0.2,
-        },
-        {
-            type = "change-recipe-productivity",
-            recipe = "navens-spore",
-            change = 0.6,
-        },
-        {
-            type = "change-recipe-productivity",
-            recipe = "yaedols-spores",
-            change = 0.6,
-        },
-        {
-            type = "change-recipe-productivity",
-            recipe = "bhoddos-spore",
-            change = 1,
-        },
-    },
+    effects = {},
     unit = {
         count = 200,
         ingredients = {

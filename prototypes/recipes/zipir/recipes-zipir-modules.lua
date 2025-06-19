@@ -129,7 +129,6 @@ RECIPE {
         {icon = "__pyalienlifegraphics__/graphics/icons/zipir.png"},
         {icon = "__pyalienlifegraphics__/graphics/icons/over-mk02.png", icon_size = 64},
     },
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     icon_size = 64,
     subgroup = "py-alienlife-zipir",
     order = "za"
@@ -148,7 +147,6 @@ RECIPE {
     results = {
         {type = "item", name = "zipir-codex-mk02", amount = 1},
     },
-    allowed_module_categories = {"data-array", "speed", "efficiency", "quality"},
 }:add_unlock("zipir-mk02")
 
 --MK03 REPLICATOR---
@@ -178,7 +176,6 @@ RECIPE {
         {icon = "__pyalienlifegraphics__/graphics/icons/zipir.png"},
         {icon = "__pyalienlifegraphics__/graphics/icons/over-mk03.png", icon_size = 64},
     },
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     icon_size = 64,
     subgroup = "py-alienlife-zipir",
     order = "za"
@@ -198,7 +195,6 @@ RECIPE {
     results = {
         {type = "item", name = "zipir-codex-mk03", amount = 1},
     },
-    allowed_module_categories = {"data-array", "speed", "efficiency", "quality"},
 }:add_unlock("zipir-mk03")
 
 --MK04 REPLICATOR---
@@ -228,7 +224,6 @@ RECIPE {
         {icon = "__pyalienlifegraphics__/graphics/icons/zipir.png"},
         {icon = "__pyalienlifegraphics__/graphics/icons/over-mk04.png", icon_size = 64},
     },
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     icon_size = 64,
     subgroup = "py-alienlife-zipir",
     order = "za"
@@ -247,5 +242,4 @@ RECIPE {
     results = {
         {type = "item", name = "zipir-codex-mk04", amount = 1},
     },
-    allowed_module_categories = {"data-array", "speed", "efficiency", "quality"},
 }:add_unlock("zipir-mk04")

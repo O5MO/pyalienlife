@@ -3,7 +3,6 @@ py.autorecipes {
 	category = "ralesia",
 	subgroup = "py-alienlife-ralesia",
 	order = "a",
-	number_icons = true,
 	mats =
 	{
 		--base

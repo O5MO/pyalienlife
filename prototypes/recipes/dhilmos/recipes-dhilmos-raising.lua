@@ -7,7 +7,6 @@ py.autorecipes {
 	subgroup = "py-alienlife-dhilmos",
 	order = "c",
 	main_product = "dhilmos-egg",
-	number_icons = true,
 	mats =
 	{
 		--chem
@@ -190,7 +189,6 @@ py.autorecipes {
 	subgroup = "py-alienlife-dhilmos",
 	order = "b",
 	main_product = "dhilmos",
-	number_icons = true,
 	mats =
 	{
 		--chem

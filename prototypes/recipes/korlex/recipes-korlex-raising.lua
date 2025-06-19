@@ -8,7 +8,6 @@ py.autorecipes {
 	order = "c",
 	main_product = "korlex-pup",
 	crafting_speed = 20,
-	number_icons = true,
 	mats =
 	{
 		--logistic
@@ -190,7 +189,6 @@ py.autorecipes {
 	subgroup = "py-alienlife-korlex",
 	order = "b",
 	main_product = "korlex",
-	number_icons = true,
 	mats =
 	{
 		--logistic

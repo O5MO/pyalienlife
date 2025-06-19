@@ -5,7 +5,6 @@ py.autorecipes {
 	allowed_module_categories = {"auog"},
 	subgroup = "py-alienlife-auog",
 	order = "b",
-	number_icons = true,
 	mats =
 	{
 		--base
@@ -115,7 +114,6 @@ py.autorecipes {
 	category = "auog",
 	subgroup = "py-alienlife-auog",
 	order = "b",
-	number_icons = true,
 	upgrades =
 	{
 		{

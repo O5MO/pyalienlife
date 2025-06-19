@@ -8,7 +8,6 @@ py.autorecipes {
 	crafting_speed = 20,
 	subgroup = "py-alienlife-arthurian",
 	order = "c",
-	number_icons = true,
 	mats =
 	{
 		--base
@@ -26,6 +25,7 @@ py.autorecipes {
 				--{name = 'arthurian', amount = 2},
 				{name = "arthurian-egg", amount = 3},
 			},
+			name = "arthurian-egg-1",
 			tech = "arthurian"
 		},
 		--py
@@ -38,6 +38,7 @@ py.autorecipes {
 			{
 				{name = "arthurian-egg", add_amount = 1},
 			},
+			name = "arthurian-egg-2",
 			tech = "arthurian-mk02"
 		},
 		--prod
@@ -50,6 +51,7 @@ py.autorecipes {
 			{
 				{name = "arthurian-egg", add_amount = 1},
 			},
+			name = "arthurian-egg-3",
 			tech = "arthurian-mk03"
 		},
 		--utility
@@ -62,6 +64,7 @@ py.autorecipes {
 			{
 				{name = "arthurian-egg", add_amount = 1},
 			},
+			name = "arthurian-egg-4",
 			tech = "arthurian-mk04"
 		},
 	}
@@ -188,7 +191,6 @@ py.autorecipes {
 	main_product = "arthurian",
 	subgroup = "py-alienlife-arthurian",
 	order = "b",
-	number_icons = true,
 	mats =
 	{
 		--base
@@ -204,6 +206,7 @@ py.autorecipes {
 				{name = "arthurian", amount = 1},
 			},
 			crafting_speed = 130,
+			name = "arthurian-maturing-1",
 			tech = "arthurian"
 		},
 		--py
@@ -219,6 +222,7 @@ py.autorecipes {
 				{name = "arthurian", add_amount = 1},
 			},
 			crafting_speed = 100,
+			name = "arthurian-maturing-2",
 			tech = "arthurian-mk02"
 		},
 		--prod
@@ -234,6 +238,7 @@ py.autorecipes {
 				{name = "arthurian", add_amount = 2},
 			},
 			crafting_speed = 70,
+			name = "arthurian-maturing-3",
 			tech = "arthurian-mk03"
 		},
 		--utility
@@ -249,6 +254,7 @@ py.autorecipes {
 				{name = "arthurian", add_amount = 4},
 			},
 			crafting_speed = 85,
+			name = "arthurian-maturing-4",
 			tech = "arthurian-mk04"
 		},
 	}

@@ -1,8 +1,7 @@
 py.autorecipes {
-	name = "arqad-filled-honeycomb",
+	name = "filled-honeycomb",
 	category = "arqad",
 	subgroup = "py-alienlife-arqad",
-	number_icons = true,
 	upgrades =
 	{
 		{
@@ -43,6 +42,7 @@ py.autorecipes {
 			},
 			crafting_speed = 100,
 			tech = "arqad",
+			name = "arqad-filled-honeycomb-1",
 		},
 		--py
 		{
@@ -59,6 +59,7 @@ py.autorecipes {
 			},
 			crafting_speed = 70,
 			tech = "arqad-mk02",
+			name = "arqad-filled-honeycomb-2",
 		},
 		--prod
 		{
@@ -75,6 +76,7 @@ py.autorecipes {
 			},
 			crafting_speed = 40,
 			tech = "arqad-mk03",
+			name = "arqad-filled-honeycomb-3",
 		},
 		--utility
 		{
@@ -91,6 +93,7 @@ py.autorecipes {
 			},
 			crafting_speed = 10,
 			tech = "arqad-mk04",
+			name = "arqad-filled-honeycomb-4",
 		},
 	}
 }

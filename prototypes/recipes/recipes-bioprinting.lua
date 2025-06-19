@@ -558,7 +558,6 @@ RECIPE {
     type = "recipe",
     name = "print-bones",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 60,
     ingredients = {
@@ -575,7 +574,6 @@ RECIPE {
     type = "recipe",
     name = "print-bonemeal",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 60,
     ingredients = {
@@ -592,7 +590,6 @@ RECIPE {
     type = "recipe",
     name = "print-meat",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 60,
     ingredients = {
@@ -609,7 +606,6 @@ RECIPE {
     type = "recipe",
     name = "print-fat",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 60,
     ingredients = {
@@ -626,7 +622,6 @@ RECIPE {
     type = "recipe",
     name = "print-brain",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 60,
     ingredients = {
@@ -643,7 +638,6 @@ RECIPE {
     type = "recipe",
     name = "print-skin",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 60,
     ingredients = {
@@ -660,7 +654,6 @@ RECIPE {
     type = "recipe",
     name = "print-guts",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 60,
     ingredients = {
@@ -686,7 +679,6 @@ RECIPE {
     type = "recipe",
     name = "print-bones-fs",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 45,
     ingredients = {
@@ -704,7 +696,6 @@ RECIPE {
     type = "recipe",
     name = "print-meat-fs",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 45,
     ingredients = {
@@ -722,7 +713,6 @@ RECIPE {
     type = "recipe",
     name = "print-fat-fs",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 45,
     ingredients = {
@@ -740,7 +730,6 @@ RECIPE {
     type = "recipe",
     name = "print-brain-fs",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 45,
     ingredients = {
@@ -758,7 +747,6 @@ RECIPE {
     type = "recipe",
     name = "print-skin-fs",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 45,
     ingredients = {
@@ -776,7 +764,6 @@ RECIPE {
     type = "recipe",
     name = "print-guts-fs",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 45,
     ingredients = {
@@ -799,7 +786,6 @@ RECIPE {
     type = "recipe",
     name = "print-bones-immunosupressants",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 45,
     ingredients = {
@@ -818,7 +804,6 @@ RECIPE {
     type = "recipe",
     name = "print-meat-immunosupressants",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 45,
     ingredients = {
@@ -837,7 +822,6 @@ RECIPE {
     type = "recipe",
     name = "print-fat-immunosupressants",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 45,
     ingredients = {
@@ -856,7 +840,6 @@ RECIPE {
     type = "recipe",
     name = "print-brain-immunosupressants",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 45,
     ingredients = {
@@ -875,7 +858,6 @@ RECIPE {
     type = "recipe",
     name = "print-skin-immunosupressants",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 45,
     ingredients = {
@@ -894,7 +876,6 @@ RECIPE {
     type = "recipe",
     name = "print-guts-immunosupressants",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 45,
     ingredients = {
@@ -918,7 +899,6 @@ RECIPE {
     type = "recipe",
     name = "print-chitin-fs",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 120,
     ingredients = {
@@ -936,7 +916,6 @@ RECIPE {
     type = "recipe",
     name = "print-carapace-fs",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 120,
     ingredients = {
@@ -954,7 +933,6 @@ RECIPE {
     type = "recipe",
     name = "print-pelt-fs",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 120,
     ingredients = {
@@ -972,7 +950,6 @@ RECIPE {
     type = "recipe",
     name = "print-dingrit-spike-fs",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 60,
     ingredients = {
@@ -990,7 +967,6 @@ RECIPE {
     type = "recipe",
     name = "print-pineal-fs",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 60,
     ingredients = {
@@ -1008,7 +984,6 @@ RECIPE {
     type = "recipe",
     name = "print-tendon-fs",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 60,
     ingredients = {
@@ -1026,7 +1001,6 @@ RECIPE {
     type = "recipe",
     name = "print-gas-bladder-fs",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 60,
     ingredients = {
@@ -1061,7 +1035,6 @@ RECIPE {
     type = "recipe",
     name = "print-shell-fs",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 60,
     ingredients = {
@@ -1099,7 +1072,6 @@ RECIPE {
     type = "recipe",
     name = "print-chitin-immunosupressants",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 45,
     ingredients = {
@@ -1118,7 +1090,6 @@ RECIPE {
     type = "recipe",
     name = "print-carapace-immunosupressants",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 45,
     ingredients = {
@@ -1137,7 +1108,6 @@ RECIPE {
     type = "recipe",
     name = "print-pelt-immunosupressants",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 45,
     ingredients = {
@@ -1156,7 +1126,6 @@ RECIPE {
     type = "recipe",
     name = "print-dingrit-spike-immunosupressants",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 45,
     ingredients = {
@@ -1175,7 +1144,6 @@ RECIPE {
     type = "recipe",
     name = "print-pineal-immunosupressants",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 45,
     ingredients = {
@@ -1194,7 +1162,6 @@ RECIPE {
     type = "recipe",
     name = "print-tendon-immunosupressants",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 45,
     ingredients = {
@@ -1213,7 +1180,6 @@ RECIPE {
     type = "recipe",
     name = "print-gas-bladder-immunosupressants",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 45,
     ingredients = {
@@ -1232,7 +1198,6 @@ RECIPE {
     type = "recipe",
     name = "print-venon-immunosupressants",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 45,
     ingredients = {
@@ -1251,7 +1216,6 @@ RECIPE {
     type = "recipe",
     name = "print-shell-immunosupressants",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 45,
     ingredients = {
@@ -1270,7 +1234,6 @@ RECIPE {
     type = "recipe",
     name = "print-adrenal-immunosupressants",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 45,
     ingredients = {
@@ -1299,7 +1262,6 @@ RECIPE {
     type = "recipe",
     name = "bioartificial-guts",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 30,
     ingredients = {
@@ -1319,7 +1281,6 @@ RECIPE {
     type = "recipe",
     name = "biomimetic-skin",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 30,
     ingredients = {
@@ -1339,7 +1300,6 @@ RECIPE {
     type = "recipe",
     name = "in-vitro-meat",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 30,
     ingredients = {
@@ -1359,7 +1319,6 @@ RECIPE {
     type = "recipe",
     name = "laboratory-grown-brain",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 30,
     ingredients = {
@@ -1379,7 +1338,6 @@ RECIPE {
     type = "recipe",
     name = "scafold-free-bones",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 30,
     ingredients = {
@@ -1400,7 +1358,6 @@ RECIPE {
     type = "recipe",
     name = "tissue-engineered-fat",
     category = "bio-printer",
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     enabled = false,
     energy_required = 30,
     ingredients = {

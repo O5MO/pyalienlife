@@ -1,4 +1,3 @@
----@diagnostic disable: missing-parameter
 local util = require "util"
 
 data:extend {{
@@ -29,7 +28,7 @@ RECIPE {
         {type = "item",  name = "earth-generic-sample", amount = 1},
         {type = "fluid", name = "water-saline",         amount = 100}
     },
-    results = {{type = "item", name = "caravan", amount = 1}}
+    result = "caravan"
 }:add_unlock("zoology")
 
 ITEM {

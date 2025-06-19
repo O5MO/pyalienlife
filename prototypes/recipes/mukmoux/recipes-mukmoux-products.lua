@@ -1,12 +1,11 @@
 --MANURE
 
 py.autorecipes {
-	name = "mukmoux-manure",
+	name = "manure",
 	category = "mukmoux",
 	main_product = "manure",
 	subgroup = "py-alienlife-mukmoux",
 	order = "c",
-	number_icons = true,
 	mats =
 	{
 		--logistic

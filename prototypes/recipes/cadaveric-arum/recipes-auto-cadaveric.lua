@@ -3,7 +3,6 @@ py.autorecipes {
 	category = "arum",
 	subgroup = "py-alienlife-cadaveric",
 	order = "a",
-	number_icons = true,
 	mats =
 	{
 		--green

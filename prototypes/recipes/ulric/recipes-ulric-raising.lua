@@ -7,7 +7,6 @@ py.autorecipes {
 	subgroup = "py-alienlife-ulric",
 	order = "c",
 	main_product = "ulric-cub",
-	number_icons = true,
 	mats =
 	{
 		--logistic
@@ -199,7 +198,6 @@ py.autorecipes {
 	subgroup = "py-alienlife-ulric",
 	order = "b",
 	main_product = "ulric",
-	number_icons = true,
 	upgrades =
 	{
 		{

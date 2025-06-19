@@ -7,7 +7,6 @@ py.autorecipes {
 	subgroup = "py-alienlife-trits",
 	order = "c",
 	main_product = "trits-pup",
-	number_icons = true,
 	mats =
 	{
 		--py
@@ -201,7 +200,6 @@ py.autorecipes {
 	subgroup = "py-alienlife-trits",
 	order = "b",
 	main_product = "trits",
-	number_icons = true,
 	mats =
 	{
 		--py

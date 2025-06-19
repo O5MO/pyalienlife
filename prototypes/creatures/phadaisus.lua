@@ -59,7 +59,7 @@ RECIPE {
         {type = "fluid", name = "artificial-blood",                                                     amount = 400},
         {type = "fluid", name = "gta",                                                                  amount = 500}
     },
-    results = {{type = "item", name = "phadaisus", amount = 1}}
+    result = "phadaisus"
 }:add_unlock("mounts-mk04")
 
 ITEM {
@@ -230,9 +230,7 @@ data:extend {{
             volume = 0.35
         }
     },
-    ---@diagnostic disable-next-line: assign-type-mismatch
     sound_minimum_speed = 0.05,
-    ---@diagnostic disable-next-line: assign-type-mismatch
     sound_scaling_ratio = 0.8,
     impact_category = "metal-large",
     working_sound = {

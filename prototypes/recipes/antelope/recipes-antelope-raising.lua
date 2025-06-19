@@ -4,7 +4,6 @@ py.autorecipes {
 	subgroup = "py-alienlife-antelope",
 	order = "b",
 	main_product = "caged-antelope",
-	number_icons = true,
 	mats =
 	{
 		{

@@ -32,14 +32,14 @@ RECIPE {
     enabled = false,
     category = "crafting-with-fluid",
     ingredients = {
-        {type = "item",  name = "coke",         amount = 1},
-        {type = "item",  name = "sulfur",       amount = 1},
+        {"coke",         1},
+        {"sulfur",       1},
         {type = "fluid", name = "water-saline", amount = 100},
-        {type = "item",  name = "guano",        amount = 2},
+        {"guano",        2},
     },
     allow_productivity = true,
     results = {
-        {type = "item", name = "gunpowder", amount = 10},
+        {"gunpowder", 10},
     }
 }:add_unlock {"biofluid-mk02"}
 
@@ -76,12 +76,12 @@ RECIPE {
     enabled = false,
     category = "chemistry",
     ingredients = {
-        {type = "fluid", name = "glycerol",         amount = 100},
-        {type = "fluid", name = "sulfuric-acid",    amount = 50},
-        {type = "item",  name = "ammonium-nitrate", amount = 1}
+        {type = "fluid",     name = "glycerol",      amount = 100},
+        {type = "fluid",     name = "sulfuric-acid", amount = 50},
+        {"ammonium-nitrate", 1}
     },
     results = {
-        {type = "item", name = "explosives", amount = 8},
+        {"explosives", 8},
     }
 }:add_unlock {"biofluid-mk02"}
 

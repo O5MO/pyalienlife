@@ -7,7 +7,6 @@ py.autorecipes {
 	subgroup = "py-alienlife-dingrits",
 	order = "c",
 	main_product = "dingrits-cub",
-	number_icons = true,
 	mats =
 	{
 		--chem
@@ -188,7 +187,6 @@ py.autorecipes {
 	subgroup = "py-alienlife-dingrits",
 	order = "b",
 	main_product = "dingrits",
-	number_icons = true,
 	mats =
 	{
 		--chem

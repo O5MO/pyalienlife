@@ -3,7 +3,6 @@ py.autorecipes {
 	category = "kicalk",
 	subgroup = "py-alienlife-kicalk",
 	order = "a",
-	number_icons = true,
 	mats =
 	{
 		--base

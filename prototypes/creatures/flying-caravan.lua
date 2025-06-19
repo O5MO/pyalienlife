@@ -1,4 +1,3 @@
----@diagnostic disable: missing-parameter
 local util = require "util"
 
 RECIPE {
@@ -22,7 +21,7 @@ RECIPE {
         {type = "fluid", name = "hydrogen",          amount = 500},
         {type = "item",  name = "small-parts-01",    amount = 100},
     },
-    results = {{type = "item", name = "flyavan", amount = 1}}
+    result = "flyavan"
 }:add_unlock("domestication-mk03")
 
 ITEM {

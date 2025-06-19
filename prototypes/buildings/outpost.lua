@@ -13,7 +13,7 @@ RECIPE {
         {type = "item", name = "concrete",       amount = 20},
         {type = "item", name = "glass",          amount = 5},
     },
-    results = {{type = "item", name = "outpost", amount = 1}}
+    result = "outpost"
 }:add_unlock("zoology")
 
 ITEM {
@@ -29,7 +29,6 @@ ITEM {
 
 data:extend {{
     inventory_type = "with_filters_and_bar",
-    ---@diagnostic disable-next-line: assign-type-mismatch
     scale_info_icons = true,
     name = "outpost",
     type = "container",

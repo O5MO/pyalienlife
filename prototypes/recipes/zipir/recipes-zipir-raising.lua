@@ -7,7 +7,6 @@ py.autorecipes {
 	subgroup = "py-alienlife-zipir",
 	order = "c",
 	main_product = "zipir-eggs",
-	number_icons = true,
 	mats =
 	{
 		{
@@ -187,7 +186,6 @@ py.autorecipes {
 	subgroup = "py-alienlife-zipir",
 	order = "b",
 	main_product = "zipir1",
-	number_icons = true,
 	mats =
 	{
 		{

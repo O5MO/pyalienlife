@@ -3,7 +3,6 @@ py.autorecipes {
 	category = "yotoi",
 	subgroup = "py-alienlife-yotoi",
 	order = "z",
-	number_icons = true,
 	mats =
 	{
 		--logisitic

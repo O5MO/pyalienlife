@@ -8,7 +8,6 @@ py.autorecipes {
 	order = "c",
 	main_product = "cottongut-pup",
 	crafting_speed = 20,
-	number_icons = true,
 	mats =
 	{
 		--red
@@ -82,7 +81,6 @@ py.autorecipes {
 	subgroup = "py-alienlife-cottongut",
 	order = "b",
 	main_product = "cottongut",
-	number_icons = true,
 	mats =
 	{
 		--red

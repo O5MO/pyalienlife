@@ -8,7 +8,6 @@ py.autorecipes {
 	order = "c",
 	main_product = "xyhiphoe-cub",
 	crafting_speed = 20,
-	number_icons = true,
 	mats =
 	{
 		{
@@ -193,7 +192,6 @@ py.autorecipes {
 	subgroup = "py-alienlife-xyhiphoe",
 	order = "b",
 	main_product = "xyhiphoe",
-	number_icons = true,
 	mats =
 	{
 		{

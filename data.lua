@@ -711,10 +711,6 @@ require "prototypes/ores/yotoi"
 require "prototypes/ores/yotoi-fruit"
 require "prototypes/ores/bioreserve"
 require "prototypes/ores/nexelit"
-if mods.pyhightech then
-    require "prototypes/ores/kicalk"
-    require "prototypes/ores/arum"
-end
 
 --(( BACKGROUND ))--
 data.raw["utility-constants"].default.recipe_step_limit = 2000;

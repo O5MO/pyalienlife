@@ -1,5 +1,6 @@
 local biomass_convertion = {
     ["used-comb"] = {item_amount = 2, biomass_amount = 30},
+    ["ralesia"] = {item_amount = 10, biomass_amount = 20},
     ["native-flora"] = {item_amount = 10, biomass_amount = 20},
     ["wood"] = {item_amount = 5, biomass_amount = 30},
     ["log"] = {item_amount = 1, biomass_amount = 30},
@@ -490,10 +491,10 @@ end
 local local_name_type
 
 for i, item in pairs(biomass_convertion) do
-    local prototype = data.raw.fluid[i] --[[@as data.FluidPrototype|data.ItemPrototype]]
+    local prototype = data.raw.fluid[i]
     local local_name_type = "fluid"
     for item_prototype in pairs(defines.prototypes.item) do
-        local item = (data.raw[item_prototype] or {})[i] --[[@as data.ItemPrototype]]
+        local item = (data.raw[item_prototype] or {})[i]
         if item then
             prototype = item
             local_name_type = "item"
@@ -514,7 +515,6 @@ for i, item in pairs(biomass_convertion) do
         icons = table.deepcopy(prototype.icons)
     end
 
-    ---@diagnostic disable-next-line: param-type-mismatch
     table.insert(icons, {icon = "__pyalienlifegraphics__/graphics/icons/biomass.png", scale = 0.25, shift = {-7.5, -7.5}, icon_size = 64})
 
     RECIPE {

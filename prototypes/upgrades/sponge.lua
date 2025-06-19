@@ -9,7 +9,7 @@ if data and not yafc_turd_integration then
                 {type = "fluid", name = "water-saline", amount = 20}
             },
             results = {
-                {type = "item", name = "pure-sand", amount = 16}
+                {"pure-sand", 16}
             },
             category = "sponge",
             subgroup = "py-alienlife-sponge",
@@ -25,7 +25,7 @@ if data and not yafc_turd_integration then
                 {type = "fluid", name = "water-saline", amount = 20}
             },
             results = {
-                {type = "item", name = "stone-brick", amount = 9}
+                {"stone-brick", 9}
             },
             category = "sponge",
             subgroup = "py-alienlife-sponge",
@@ -41,7 +41,7 @@ if data and not yafc_turd_integration then
                 {type = "fluid", name = "water-saline", amount = 20}
             },
             results = {
-                {type = "item", name = "rich-clay", amount = 12}
+                {"rich-clay", 12}
             },
             category = "sponge",
             subgroup = "py-alienlife-sponge",

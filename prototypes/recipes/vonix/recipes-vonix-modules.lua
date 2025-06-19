@@ -132,7 +132,6 @@ RECIPE {
         {icon = "__pyalienlifegraphics__/graphics/icons/vonix.png"},
         {icon = "__pyalienlifegraphics__/graphics/icons/over-mk02.png", icon_size = 64},
     },
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     icon_size = 64,
     subgroup = "py-alienlife-vonix",
     order = "za"
@@ -151,7 +150,6 @@ RECIPE {
     results = {
         {type = "item", name = "vonix-codex-mk02", amount = 1},
     },
-    allowed_module_categories = {"data-array", "speed", "efficiency", "quality"},
 }:add_unlock("vonix-mk02")
 
 --MK03 REPLICATOR---
@@ -182,7 +180,6 @@ RECIPE {
         {icon = "__pyalienlifegraphics__/graphics/icons/vonix.png"},
         {icon = "__pyalienlifegraphics__/graphics/icons/over-mk03.png", icon_size = 64},
     },
-    allowed_module_categories = {"bioprinting", "speed", "efficiency", "quality"},
     icon_size = 64,
     subgroup = "py-alienlife-vonix",
     order = "za"
@@ -202,5 +199,4 @@ RECIPE {
     results = {
         {type = "item", name = "vonix-codex-mk03", amount = 1},
     },
-    allowed_module_categories = {"data-array", "speed", "efficiency", "quality"},
 }:add_unlock("vonix-mk03")

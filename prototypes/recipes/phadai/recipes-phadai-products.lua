@@ -1,9 +1,8 @@
 py.autorecipes {
-	name = "Phadai-Dance-Dance-Revolution",
+	name = "carapace",
 	category = "phadai",
 	subgroup = "py-alienlife-phadai",
 	main_product = "carapace",
-	number_icons = true,
 	mats =
 	{
 		--chem
@@ -24,6 +23,7 @@ py.autorecipes {
 			},
 			crafting_speed = 60,
 			tech = "phadai",
+			name = "Phadai-Dance-Dance-Revolution-1",
 			--icon = "__pyalienlifegraphics__/graphics/icons/atomizer-mk01.png"
 		},
 		--py
@@ -42,6 +42,7 @@ py.autorecipes {
 			},
 			crafting_speed = 60,
 			tech = "phadai-mk02",
+			name = "Phadai-Dance-Dance-Revolution-2",
 			--icon = "__pyalienlifegraphics__/graphics/icons/navens-culture-mk01.png"
 		},
 		--prod
@@ -59,6 +60,7 @@ py.autorecipes {
 			},
 			crafting_speed = 60,
 			tech = "phadai-mk03",
+			name = "Phadai-Dance-Dance-Revolution-3",
 		},
 		--utility
 		{
@@ -74,6 +76,7 @@ py.autorecipes {
 			},
 			crafting_speed = 60,
 			tech = "phadai-mk04",
+			name = "Phadai-Dance-Dance-Revolution-4",
 		},
 	}
 }

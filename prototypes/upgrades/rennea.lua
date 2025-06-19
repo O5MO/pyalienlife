@@ -12,11 +12,11 @@ if data and not yafc_turd_integration then
             type = "recipe",
             name = "deadhead-recycle",
             ingredients = {
-                {type = "item",  name = "deadhead", amount = 8},
-                {type = "fluid", name = "water",    amount = 100},
-                {type = "item",  name = "coarse",   amount = 2}
+                {"deadhead",     8},
+                {type = "fluid", name = "water", amount = 100},
+                {"coarse",       2}
             },
-            results = {{type = "item", name = "native-flora", amount = 55}},
+            results = {{"native-flora", 55}},
             enabled = false,
             category = "rennea",
             energy_required = 15
@@ -30,7 +30,7 @@ if data and not yafc_turd_integration then
         [108] = RECIPE("rennea-4"):copy(),
     } do
         recipe.name = recipe.name .. "-deadhead"
-        recipe:add_result {type = "item", name = "deadhead", amount = amount}
+        recipe:add_result {"deadhead", amount}
         recipe.main_product = "deadhead"
         data:extend {recipe}
     end

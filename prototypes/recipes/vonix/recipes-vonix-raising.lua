@@ -7,7 +7,6 @@ py.autorecipes {
 	subgroup = "py-alienlife-vonix",
 	order = "c",
 	main_product = "vonix-eggs",
-	number_icons = true,
 	mats =
 	{
 		--py
@@ -171,7 +170,6 @@ py.autorecipes {
 	subgroup = "py-alienlife-vonix",
 	order = "b",
 	main_product = "vonix",
-	number_icons = true,
 	mats =
 	{
 		--py

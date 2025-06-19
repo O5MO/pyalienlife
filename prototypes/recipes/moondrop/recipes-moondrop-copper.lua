@@ -3,7 +3,6 @@ py.autorecipes {
 	category = "moon",
 	subgroup = "py-alienlife-moon",
 	order = "a",
-	number_icons = true,
 	mats =
 	{
 		{

@@ -4,7 +4,6 @@ py.autorecipes {
     subgroup = "py-alienlife-vrauks",
     order = "b",
     main_product = "vrauks",
-    number_icons = true,
     mats = {
         -- base
         {
@@ -85,7 +84,6 @@ py.autorecipes {
     subgroup = "py-alienlife-vrauks",
     order = "c",
     main_product = "cocoon",
-    number_icons = true,
     mats = {
         -- base
         {

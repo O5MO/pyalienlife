@@ -26,7 +26,7 @@ RECIPE {
         {type = "fluid", name = "fetal-serum",       amount = 100},
         {type = "fluid", name = "artificial-blood",  amount = 200}
     },
-    results = {{type = "item", name = "dingrido", amount = 1}}
+    result = "dingrido"
 }:add_unlock("mounts-mk02")
 
 ITEM {
@@ -211,7 +211,6 @@ data:extend {{
     sound_no_fuel = {
         {filename = "__pyalienlifegraphics3__/sounds/dingrito-out.ogg", volume = 0.9},
     },
-    ---@diagnostic disable-next-line: assign-type-mismatch
     sound_minimum_speed = 0.15,
     impact_category = "metal-large",
     working_sound = {
