@@ -16,10 +16,8 @@ py.on_event(py.events.on_built(), function (event)
         }
         storage.connector_entities[entity.unit_number] = connector_entity
         storage.outpost_by_connector[connector_entity.unit_number] = entity
-        local red = entity.get_wire_connector(defines.wire_connector_id.circuit_red, true)
-        connector_entity.get_wire_connector(defines.wire_connector_id.circuit_red, true).connect_to(red, false)
-        local green = entity.get_wire_connector(defines.wire_connector_id.circuit_green, true)
-        connector_entity.get_wire_connector(defines.wire_connector_id.circuit_green, true).connect_to(green, false)
+        connector_entity.proxy_target_entity = entity
+        connector_entity.proxy_target_inventory = defines.inventory.chest
     end
 end)
 
@@ -30,6 +28,29 @@ py.on_event(py.events.on_destroyed(), function (event)
         storage.connector_entities[entity.unit_number].destroy()
     end
 end)
+
+---@param outpost LuaEntity
+local function reconnect_wires(outpost)
+    if not outpost or not outpost.valid then return end
+    local connector_entity = storage.connector_entities[outpost.unit_number]
+    assert(connector_entity, "Connector entity does not exist for outpost:\n"..serpent.block(outpost))
+    local outpost_red = outpost.get_wire_connector(defines.wire_connector_id.circuit_red, false)
+    if outpost_red then
+        local connector_red = connector_entity.get_wire_connector(defines.wire_connector_id.circuit_red, true)
+        for _, connection in pairs(outpost_red.real_connections) do
+            connector_red.connect_to(connection.target)
+        end
+        outpost_red.disconnect_all()
+    end
+    local outpost_green = outpost.get_wire_connector(defines.wire_connector_id.circuit_green, false)
+    if outpost_green then
+        local connector_green = connector_entity.get_wire_connector(defines.wire_connector_id.circuit_green, true)
+        for _, connection in pairs(outpost_green.real_connections) do
+            connector_green.connect_to(connection.target)
+        end
+        outpost_green.disconnect_all()
+    end
+end
 
 ---@param parent LuaGuiElement The element to add this frame to
 ---@param caravan_data Caravan
@@ -87,19 +108,11 @@ local function generate_caravan_frame(parent, caravan_data)
 end
 
 py.on_event(defines.events.on_gui_opened, function (event)
-    local player = game.players[event.player_index]
-    local entity = event.entity
-    if entity and entity.valid and entity.name == "outpost-circuit-connector" then
-        local outpost = storage.outpost_by_connector[entity.unit_number]
-        player.opened = outpost
-    end
-end)
-
-py.on_event(defines.events.on_gui_opened, function (event)
     local player = game.get_player(event.player_index)
     local entity = event.entity
     if not entity then return end
     if entity.name ~= "outpost" then return end
+    reconnect_wires(entity)
     if player.gui.relative.connected_caravan_gui then return end
     local anchor = {
         gui = defines.relative_gui_type.container_gui,
