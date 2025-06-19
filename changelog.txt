@@ -1,4 +1,50 @@
 ---------------------------------------------------------------------------------------------------
+Version: ???
+Date: ???
+  Changes:
+    - Respects flipped buildings when replacing building with TURD version.
+    - Bonemeal recipe changed to use bioreactor if pyhightech isn't enabled (resolves https://github.com/pyanodon/pybugreports/issues/1048).
+    - Renamed "Logistic Station" to "Wyrmhole".
+    - Changed the internal name for Wyrmholes from "pydrive" to "wyrmhole".
+---------------------------------------------------------------------------------------------------
+Version: 3.0.44
+Date: 2025-6-1
+  Changes:
+    - Fixed migration crash involving simik turd path 2.
+---------------------------------------------------------------------------------------------------
+Version: 3.0.43
+Date: 2025-6-1
+  Changes:
+    - Changed spore collectors to use research productivity instead of 3 different recipes
+    - Made bhoddos breeding less random
+    - The pyHT urea recipe is now marked as hidden.
+    - Added a new recycling recipe for extra cages. Resolves https://github.com/pyanodon/pybugreports/issues/965
+    - Fixed fish TURD fish farms not having passthru pipe connections. Resolves https://github.com/pyanodon/pybugreports/issues/955
+    - Fix crash with caravan interupt migrations. Resolves https://github.com/pyanodon/pybugreports/issues/909
+    - Farm recipe icons are now numbered.
+    - Fixed harvesters placed on a smart farm changing circuit conditions when the smart farm creates new crops. Resolves https://github.com/pyanodon/pybugreports/issues/988
+    - Fixed mk2+ vrauk breeding stats. Resolves https://github.com/pyanodon/pybugreports/issues/997
+    - Fixed icons and z-ordering for logistic station. Resolves https://github.com/pyanodon/pybugreports/issues/994
+    - Changed vrauk mk2+ recipe to show probabilities properly again.
+    - Fixed missing recipe subgroup for titanium cage recycling.
+    - Fixed productivity modules could be inserted into compost plants but the modules had no effect. Resolves https://github.com/pyanodon/pybugreports/issues/1004
+    - Added a player reach distance check when removing food from dig site. Resolves https://github.com/pyanodon/pybugreports/issues/1003
+    - Fixed MK02-MK04 fish and arqad maggots not rendering the pip levels. Resolves https://github.com/pyanodon/pybugreports/issues/999
+    - Buffed all three paths of simik turd path 2.
+    - Increased sulfuric acid from xeno rendering by a factor of 10X.
+    - Decreased alien bacteria requirements in yaedols cultivation MK04 by a factor of 4.
+    - Greatly boosted the output for the "mass creature production" technology at utility science.
+    - Mukmoux manure recipes now generate manure bacteria as a byproduct.
+  Biofluid:
+    - Biofluid overhaul with the following fixes and improvements (Resolves https://github.com/pyanodon/pybugreports/issues/973):
+    - Biofluid bots are no longer given jobs to deliver 0 units of fluid.
+    - When picking a Bioport to service a request, the system now tries them from closest first to farthest last.
+    - Fixed a problem where Provider tanks would become permanently disabled when their contents were erroneously reserved.
+    - Full Provider tanks are considered to have infinite fluid available, allowing a well-supplied tank to service many more bots.
+    - Increased the tank size of both Provider and Requestor tanks from 20k to 100k, allowing for much greater throughput on a single route.
+    - Fixed a graphical problem where the glow layer was improperly rendering on runs of vertical vessels.
+    - Fixed a graphical problem where south-facing vessel-to-ground did not join correctly to adjacent vessels.
+---------------------------------------------------------------------------------------------------
 Version: 3.0.42
 Date: ???
   Changes:

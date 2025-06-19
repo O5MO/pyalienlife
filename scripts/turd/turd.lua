@@ -76,7 +76,7 @@ local function update_confirm_button(element, player, researched_technologies)
             if minutes < 10 then minutes = "0" .. minutes end
             if seconds < 10 then seconds = "0" .. seconds end
             element.style = "confirm_button_without_tooltip"
-            element.caption = {"turd.unselect-migrate", hours, minutes, seconds}
+            element.caption = {"turd.unselect-migrate", tostring(hours), tostring(minutes), tostring(seconds)}
         elseif (storage.turd_reset_remaining[force_index] or 0) > 0 then
             element.style = "confirm_button_without_tooltip"
             element.caption = {"turd.unselect"}
@@ -354,6 +354,7 @@ local function machine_replacement(old, new, assembling_machine_list)
             local surface = machine.surface
             local items_to_place_this = machine.prototype.items_to_place_this
             local direction = machine.direction
+            local mirrored = machine.mirroring
             machine.mine {inventory = temp_inventory, force = true, raise_destroyed = false, ignore_minable = true}
             for _, item_to_place in pairs(items_to_place_this) do
                 temp_inventory.remove(item_to_place)
@@ -364,6 +365,7 @@ local function machine_replacement(old, new, assembling_machine_list)
             new_machine.crafting_progress = crafting_progress
             new_machine.bonus_progress = bonus_progress
             new_machine.direction = direction
+            new_machine.mirroring = mirrored
             temp_inventory.clear()
             machine = new_machine
         end
